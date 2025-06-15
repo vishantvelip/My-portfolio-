@@ -9,11 +9,12 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Navigation -->
+
+    <!-- Navigation -->
   <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
     <div class="nav-container">
       <div class="logo">
-        <img src="https://raw.githubusercontent.com/vishantvelip/portfolio-/main/programmer-programming-occupation-avatar-512.png" alt="Vishant Velip Logo" loading="lazy">
+        <img src="https://raw.githubusercontent.com/vishantvelip/portfolio-/main/programmer-programming-occupation-avatar-512.png" alt="Vishant Velip Logo" aria-label="Vishant Velip Logo">
       </div>
       <ul class="nav-menu" id="nav-menu" aria-label="Navigation menu">
         <li><a href="#home" class="nav-link">Home</a></li>
@@ -28,7 +29,7 @@
         <span></span>
       </div>
       <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Switch to dark mode">
-        <i class="fas fa-moon"></i>
+        <i class="fas fa-moon" aria-hidden="true"></i>
       </button>
     </div>
   </nav>
@@ -37,6 +38,7 @@
   <section id="home" class="hero" aria-label="Hero section">
     <video class="hero-video" autoplay loop muted playsinline aria-hidden="true">
       <source src="https://raw.githubusercontent.com/vishantvelip/portfolio-/main/2516159-hd_1920_1080_24fps.mp4" type="video/mp4">
+      Your browser does not support the video tag.
     </video>
     <div class="hero-content">
       <h1>Hi, I'm Vishant Velip - Crafting Digital Experiences</h1>
@@ -51,7 +53,7 @@
       <h2 class="section-title fade-in">About Me</h2>
       <div class="about-content">
         <div class="about-image fade-in">
-          <img src="https://raw.githubusercontent.com/vishantvelip/portfolio-/main/programmer-programming-occupation-avatar-512.png" alt="Vishant Velip Profile Photo" class="profile-img" loading="lazy">
+          <img src="https://raw.githubusercontent.com/vishantvelip/portfolio-/main/programmer-programming-occupation-avatar-512.png" alt="Vishant Velip Profile Photo" class="profile-img">
         </div>
         <div class="about-text fade-in" id="about-text">
           <div class="loading">Loading about content...</div>
@@ -87,14 +89,14 @@
       <div class="contact-content">
         <div class="contact-info fade-in">
           <div class="contact-item">
-            <i class="fas fa-envelope"></i>
+            <i class="fas fa-envelope" aria-hidden="true"></i>
             <div>
               <h4>Email</h4>
               <p><a href="mailto:webdeveloper10980@gmail.com" aria-label="Email Vishant Velip">webdeveloper10980@gmail.com</a></p>
             </div>
           </div>
           <div class="contact-item">
-            <i class="fas fa-map-marker-alt"></i>
+            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
             <div>
               <h4>Location</h4>
               <p>India</p>
@@ -105,15 +107,15 @@
           <div id="form-message" class="form-message" style="display: none;"></div>
           <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" id="name" name="name" required aria-label="Your name">
+            <input type="text" id="name" name="name" required aria-required="true" aria-label="Your name">
           </div>
           <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" required aria-label="Your email">
+            <input type="email" id="email" name="email" required aria-required="true" aria-label="Your email">
           </div>
           <div class="form-group">
             <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" required aria-label="Your message"></textarea>
+            <textarea id="message" name="message" rows="5" required aria-required="true" aria-label="Your message"></textarea>
           </div>
           <button type="submit" class="submit-btn" aria-label="Send message">Send Message</button>
         </form>
@@ -125,15 +127,14 @@
   <footer class="footer" aria-label="Footer">
     <div class="container">
       <div class="social-links">
-        <a href="https://github.com/vishantvelip" target="_blank" rel="noopener" aria-label="GitHub profile"><i class="fab fa-github"></i></a>
-        <a href="https://linkedin.com/in/vishantvelip" target="_blank" rel="noopener" aria-label="LinkedIn profile"><i class="fab fa-linkedin"></i></a>
-        <a href="https://twitter.com/vishantvelip" target="_blank" rel="noopener" aria-label="Twitter profile"><i class="fab fa-twitter"></i></a>
-        <a href="mailto:webdeveloper10980@gmail.com" aria-label="Email contact"><i class="fas fa-envelope"></i></a>
+        <a href="https://github.com/vishantvelip" target="_blank" rel="noopener" aria-label="GitHub profile"><i class="fab fa-github" aria-hidden="true"></i></a>
+        <a href="https://linkedin.com/in/vishantvelip" target="_blank" rel="noopener" aria-label="LinkedIn profile"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+        <a href="https://twitter.com/vishantvelip" target="_blank" rel="noopener" aria-label="Twitter profile"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+        <a href="mailto:webdeveloper10980@gmail.com" aria-label="Email contact"><i class="fas fa-envelope" aria-hidden="true"></i></a>
       </div>
       <p>© 2025 Vishant Velip. All rights reserved.</p>
     </div>
   </footer>
-
   <script src="script.js"></script>
 </body>
 </html>
