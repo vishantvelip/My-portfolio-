@@ -12,6 +12,33 @@ const SKILL_ICONS = {
   'GraphQL': 'fas fa-project-diagram',
   'SQL': 'fas fa-database'
 };
+const CACHE_TTL = 3 * 24 * 60 * 60 * 1000; // 3 days in ms
+
+// Cache Utilities
+function setCache(key, value, ttl) {
+  const now = Date.now();
+  const item = {
+    value: value,
+    expiry: now + ttl
+  };
+  localStorage.setItem(key, JSON.stringify(item));
+}
+
+function getCache(key) {
+  const itemStr = localStorage.getItem(key);
+  if (!itemStr) return null;
+  try {
+    const item = JSON.parse(itemStr);
+    if (Date.now() > item.expiry) {
+      localStorage.removeItem(key);
+      return null;
+    }
+    return item.value;
+  } catch {
+    localStorage.removeItem(key); // corrupt
+    return null;
+  }
+}
 
 // Utility: Fetch with Timeout
 async function fetchWithTimeout(url, options = {}, timeout = 10000) {
@@ -52,14 +79,22 @@ function observeFadeIn(selector) {
   document.querySelectorAll(selector).forEach(el => observer.observe(el));
 }
 
-// Load About Content
+// Load About Content (with cache)
 async function loadAbout() {
   const container = document.getElementById('about-text');
   container.innerHTML = '<div class="loading">Loading about content...</div>';
+  const cacheKey = 'about-content';
+  const cached = getCache(cacheKey);
+  if (cached) {
+    container.innerHTML = cached.map(item => `<p class="fade-in">${item.content}</p>`).join('');
+    observeFadeIn('#about-text .fade-in');
+    return;
+  }
   try {
     const response = await fetchWithTimeout(`${API_BASE}/about/json`);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const data = await response.json();
+    setCache(cacheKey, data, CACHE_TTL);
     container.innerHTML = data.map(item => `<p class="fade-in">${item.content}</p>`).join('');
     observeFadeIn('#about-text .fade-in');
   } catch (error) {
@@ -67,14 +102,32 @@ async function loadAbout() {
   }
 }
 
-// Load Skills
+// Load Skills (with cache)
 async function loadSkills() {
   const container = document.getElementById('skills-grid');
   container.innerHTML = '<div class="loading">Loading skills...</div>';
+  const cacheKey = 'skills-content';
+  const cached = getCache(cacheKey);
+  if (cached) {
+    container.innerHTML = cached.map(skill => `
+      <div class="skill-card fade-in">
+        <div class="skill-icon">
+          ${skill.image 
+            ? `<img src="${API_BASE}/${skill.image}" alt="${skill.skillName} Icon" onerror="this.src='https://via.placeholder.com/48';">`
+            : `<i class="${SKILL_ICONS[skill.skillName] || 'fas fa-code'}"></i>`}
+        </div>
+        <h3>${skill.skillName}</h3>
+        <p>${skill.description || 'No description available.'}</p>
+      </div>
+    `).join('');
+    observeFadeIn('.skill-card.fade-in');
+    return;
+  }
   try {
     const response = await fetchWithTimeout(`${API_BASE}/skills/json`);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const skills = await response.json();
+    setCache(cacheKey, skills, CACHE_TTL);
     container.innerHTML = skills.map(skill => `
       <div class="skill-card fade-in">
         <div class="skill-icon">
@@ -92,14 +145,39 @@ async function loadSkills() {
   }
 }
 
-// Load Projects
+// Load Projects (with cache)
 async function loadProjects() {
   const container = document.getElementById('projects-grid');
   container.innerHTML = '<div class="loading">Loading projects...</div>';
+  const cacheKey = 'projects-content';
+  const cached = getCache(cacheKey);
+  if (cached) {
+    container.innerHTML = cached.map(project => `
+      <div class="project-card fade-in">
+        <div class="project-image">
+          <img src="${project.projectImg || 'https://via.placeholder.com/350x200'}" alt="${project.title} Image" onerror="this.src='https://via.placeholder.com/350x200';">
+        </div>
+        <div class="project-content">
+          <h3>${project.title}</h3>
+          <p>${project.description || 'No description available.'}</p>
+          <div class="project-tech">
+            ${extractTechnologies(project.description).map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+          </div>
+          <div class="project-links">
+            ${project.projectsUrl ? `<a href="${project.projectsUrl}" class="project-link" target="_blank">View Project</a>` : ''}
+            ${project.projectCodeViewurl ? `<a href="${project.projectCodeViewurl}" class="project-link" target="_blank">View Code</a>` : ''}
+          </div>
+        </div>
+      </div>
+    `).join('');
+    observeFadeIn('.project-card.fade-in');
+    return;
+  }
   try {
     const response = await fetchWithTimeout(`${API_BASE}/projects/json`);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const projects = await response.json();
+    setCache(cacheKey, projects, CACHE_TTL);
     container.innerHTML = projects.map(project => `
       <div class="project-card fade-in">
         <div class="project-image">
