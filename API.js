@@ -13,7 +13,7 @@ const SKILL_ICONS = {
   GraphQL: 'fas fa-project-diagram',
   SQL: 'fas fa-database'
 };
-const CACHE_TTL = 3 * 24 * 60 * 60 * 1000; // 3 days in milliseconds
+const CACHE_TTL = 10 * 60 * 1000; // 10 minutes in milliseconds
 const MAX_RETRIES = 3; // Max retry attempts
 
 // Save data to localStorage with expiration
