@@ -1,139 +1,159 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio of Vishant Velip, a Full Stack Developer showcasing skills, projects, and contact information.">
-  <title>Vishant Velip - Full Stack Developer</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio - Vishant Velip</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-
-    <!-- Navigation -->
-  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
-    <div class="nav-container">
-      <div class="logo">
-        <img src="https://raw.githubusercontent.com/vishantvelip/My-portfolio-/main/programmer-programming-occupation-avatar-512.png" alt="Vishant Velip Logo" aria-label="Vishant Velip Logo">
-      </div>
-      <ul class="nav-menu" id="nav-menu" aria-label="Navigation menu">
-        <li><a href="#home" class="nav-link">Home</a></li>
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#skills" class="nav-link">Skills</a></li>
-        <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-      </ul>
-      <div class="mobile-menu" id="mobile-menu" aria-label="Toggle mobile menu" role="button" aria-controls="nav-menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Switch to dark mode">
-        <i class="fas fa-moon" aria-hidden="true"></i>
+  <!-- NAVBAR -->
+  <nav role="navigation" aria-label="Main navigation">
+    <div class="logo">Port<span>folio</span></div>
+    <div class="mobile-menu" id="mobile-menu" aria-label="Toggle mobile menu" role="button" aria-controls="nav-menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="nav-links" id="nav-menu">
+      <a href="#" class="active" data-panel="home">Home</a>
+      <a href="#" data-panel="about">About</a>
+      <a href="#" data-panel="skills">Skills</a>
+      <a href="#" data-panel="projects">Projects</a>
+      <a href="#" data-panel="contact">Contact</a>
+      <button class="toggle-theme" id="theme-toggle" aria-label="Toggle theme">
+        <i class="fa-regular fa-moon"></i>
       </button>
     </div>
   </nav>
-
-  <!-- Hero Section -->
-  <section id="home" class="hero" aria-label="Hero section">
-    <video class="hero-video" autoplay loop muted playsinline aria-hidden="true">
-      <source src="https://github.com/vishantvelip/My-portfolio-/raw/11eddc389a9bc65bd974fcca0c0ef24b69da39b7/283533_tiny.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <div class="hero-content">
-      <h1>Hi, I'm Vishant Velip - Crafting Digital Experiences</h1>
-      <p class="subtitle">Discover My Journey as a Full Stack Developer</p>
-      <a href="#about" class="cta-button" aria-label="Learn more about Vishant Velip">See My Work</a>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="section about" aria-label="About section">
-    <div class="container">
-      <h2 class="section-title fade-in">About Me</h2>
-      <div class="about-content">
-        <div class="about-image fade-in">
-          <img src="https://raw.githubusercontent.com/vishantvelip/My-portfolio-/main/programmer-programming-occupation-avatar-512.png" alt="Vishant Velip Profile Photo" class="profile-img">
+  <div class="main-content">
+    <aside class="sidebar-profile">
+      <div>
+        <div class="profile-img-glow-container">
+          <div class="profile-img-glow-bg"></div>
+          <div class="profile-img-outline"></div>
+          <img src="https://raw.githubusercontent.com/vishantvelip/My-portfolio-/main/programmer-programming-occupation-avatar-512.png" alt="Vishant Velip Profile" class="profile-img" />
         </div>
-        <div class="about-text fade-in" id="about-text">
-          <div class="loading">Loading about content...</div>
+        <div class="sidebar-profile-content">
+          <h2>Vishant Velip</h2>
+          <h3>Backend, API & Frontend Developer</h3>
+          <div class="sidebar-profile-social">
+            <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub profile"><i class="fab fa-github"></i></a>
+            <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter profile"><i class="fab fa-twitter"></i></a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn profile"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:webdeveloper10980@gmail.com" aria-label="Email contact"><i class="fas fa-envelope"></i></a>
+          </div>
+          <div class="sidebar-profile-buttons">
+            <button class="btn">Hire Me</button>
+            <button class="btn outline">Contact Me</button>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Skills Section -->
-  <section id="skills" class="section" aria-label="Skills section">
-    <div class="container">
-      <h2 class="section-title fade-in">My Skills</h2>
-      <div class="skills-grid" id="skills-grid">
-        <div class="loading">Loading skills...</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects" class="section projects" aria-label="Projects section">
-    <div class="container">
-      <h2 class="section-title fade-in">Featured Projects</h2>
-      <div class="projects-grid" id="projects-grid">
-        <div class="loading">Loading projects...</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="section contact" aria-label="Contact section">
-    <div class="container">
-      <h2 class="section-title fade-in">Get In Touch</h2>
-      <div class="contact-content">
-        <div class="contact-info fade-in">
-          <div class="contact-item">
-            <i class="fas fa-envelope" aria-hidden="true"></i>
-            <div>
-              <h4>Email</h4>
-              <p><a href="mailto:webdeveloper10980@gmail.com" aria-label="Email Vishant Velip">webdeveloper10980@gmail.com</a></p>
+    </aside>
+    <main class="main-panel">
+      <!-- HERO/INTRO SECTION -->
+      <section class="hero-section content-panel active" id="panel-home">
+        <h2>Hello, I'm</h2>
+        <h1><span class="primary">Vishant Velip</span></h1>
+        <h3>And I'm a <span id="typed-text"></span><span id="cursor" style="color:#3ea6ff;">|</span></h3>
+        <p class="hero-desc">
+          I'm a passionate backend and API developer, as well as a creative frontend engineer skilled in UI, HTML, CSS, and JavaScript. I love building robust server-side solutions and delivering user experiences that are clean, intuitive, and high-performing. My goal is to bridge the gap between powerful backend logic and seamless frontend design, bringing complete and modern web applications to life.
+        </p>
+        <div class="hero-stats">
+          <div class="stat">
+            <h1>1+</h1>
+            <p>Years of experience</p>
+          </div>
+          <div class="stat">
+            <h1>30+</h1>
+            <p>Projects completed</p>
+          </div>
+          <div class="stat">
+            <h1>5+</h1>
+            <p>Technologies mastered</p>
+          </div>
+          <div class="stat">
+            <h1>100+</h1>
+            <p>Satisfied Clients</p>
+          </div>
+        </div>
+      </section>
+      <!-- ABOUT SECTION -->
+      <section class="content-panel" id="panel-about">
+        <div class="section-container">
+          <h2 class="section-title">About Me</h2>
+          <div id="about-text" style="min-height:110px;">
+            <div class="loader"></div>
+          </div>
+        </div>
+      </section>
+      <!-- SKILLS SECTION -->
+      <section class="content-panel" id="panel-skills">
+        <div class="section-container">
+          <h2 class="section-title">My Skills</h2>
+          <div id="skills-grid" class="skills-grid" style="min-height:170px;">
+            <div class="loader"></div>
+          </div>
+        </div>
+      </section>
+      <!-- PROJECTS SECTION -->
+      <section class="content-panel" id="panel-projects">
+        <div class="section-container">
+          <h2 class="section-title">Featured Projects</h2>
+          <div id="projects-grid" class="projects-grid" style="min-height:200px;">
+            <div class="loader"></div>
+          </div>
+        </div>
+      </section>
+      <!-- CONTACT SECTION -->
+      <section class="content-panel" id="panel-contact">
+        <div class="section-container">
+          <h2 class="section-title">Get In Touch</h2>
+          <div style="max-width:400px;">
+            <div style="margin-bottom:24px;">
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+                <i class="fas fa-envelope" style="font-size:1.5rem;color:var(--primary);"></i>
+                <span style="font-size:1rem;color:var(--muted);">webdeveloper10980@gmail.com</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;">
+                <i class="fas fa-map-marker-alt" style="font-size:1.5rem;color:var(--primary);"></i>
+                <span style="font-size:1rem;color:var(--muted);">India</span>
+              </div>
             </div>
-          </div>
-          <div class="contact-item">
-            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-            <div>
-              <h4>Location</h4>
-              <p>India</p>
-            </div>
+            <form id="contact-form">
+              <div style="margin-bottom:14px;">
+                <label for="name" style="display:block;color:var(--white);font-size:1rem;margin-bottom:6px;">Name</label>
+                <input type="text" id="name" name="name" required style="width:100%;padding:8px;border:2px solid var(--border);border-radius:8px;background:var(--card-bg);color:var(--text);font-size:1rem;">
+              </div>
+              <div style="margin-bottom:14px;">
+                <label for="email" style="display:block;color:var(--white);font-size:1rem;margin-bottom:6px;">Email</label>
+                <input type="email" id="email" name="email" required style="width:100%;padding:8px;border:2px solid var(--border);border-radius:8px;background:var(--card-bg);color:var(--text);font-size:1rem;">
+              </div>
+              <div style="margin-bottom:14px;">
+                <label for="message" style="display:block;color:var(--white);font-size:1rem;margin-bottom:6px;">Message</label>
+                <textarea id="message" name="message" rows="5" required style="width:100%;padding:8px;border:2px solid var(--border);border-radius:8px;background:var(--card-bg);color:var(--text);font-size:1rem;"></textarea>
+              </div>
+              <button type="submit" class="btn" style="background:var(--primary);color:var(--white);padding:8px 22px;border:none;border-radius:8px;font-size:1.1rem;cursor:pointer;">Send Message</button>
+              <div id="form-message" class="form-message" style="display:none"></div>
+            </form>
           </div>
         </div>
-        <form class="contact-form fade-in" id="contact-form" aria-label="Contact form">
-          <div id="form-message" class="form-message" style="display: none;"></div>
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required aria-required="true" aria-label="Your name">
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required aria-required="true" aria-label="Your email">
-          </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" required aria-required="true" aria-label="Your message"></textarea>
-          </div>
-          <button type="submit" class="submit-btn" aria-label="Send message">Send Message</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
+      </section>
+    </main>
+  </div>
   <footer class="footer" aria-label="Footer">
     <div class="container">
-      <div class="social-links">
-        <a href="https://github.com/vishantvelip" target="_blank" rel="noopener" aria-label="GitHub profile"><i class="fab fa-github" aria-hidden="true"></i></a>
-    <a href="mailto:webdeveloper10980@gmail.com" aria-label="Email contact"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+      <div class="social-links" style="display:flex;justify-content:center;gap:20px;margin-bottom:20px;">
+        <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub profile"><i class="fab fa-github" aria-hidden="true"></i></a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn profile"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+        <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter profile"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+        <a href="mailto:webdeveloper10980@gmail.com" aria-label="Email contact"><i class="fas fa-envelope" aria-hidden="true"></i></a>
       </div>
-      <p>© 2025 Vishant Velip. All rights reserved.</p>
+      <p style="color:var(--muted);font-size:1rem;">© 2025 Vishant Velip. All rights reserved.</p>
     </div>
   </footer>
-  <script src="API.js"></script>
-   <script src="UI.js"></script>
+  <script src="api.js"></script>
+  <script src="ui.js"></script>
 </body>
 </html>
