@@ -1,5 +1,5 @@
 // API base URLs
-const API_BASE_A = 'https://database-managemet-api.onrender.com';
+const API_BASE_A = 'https://datamanager-8bkl.onrender.com/';
 const API_BASE_B = 'https://database-managemet-api.vercel.app';
 const SKILL_ICONS = {
   Html: 'fab fa-html5',
